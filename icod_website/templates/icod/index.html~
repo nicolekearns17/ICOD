@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+	<title>Inverclyde Council on Disability & Inverclyde Shopmobility </title>
+</head>
+
+<body>
+	<h1>Welcome to Inverclyde Council on Disability</h1><br><br>
+
+	{% if intros %}
+		{% for intro in intros %}
+			{{intro.intro}}
+		{% endfor %}
+	{% else %} 
+		<strong> No intro available! </strong>
+	{% endif %}
+	<br><br>
+	<a href="/icod/about/">About Us</a><br><br>
+
+	<img src="{% static "logo.jpg" %}" alt="Picture of logo"/>
+</body>
+
+
+</html>
