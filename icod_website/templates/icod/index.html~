@@ -9,6 +9,7 @@
 </head>
 
 <body>
+	{% block content %}
 	<h1>Welcome to Inverclyde Council on Disability</h1><br><br>
 
 	{% if intros %}
@@ -22,6 +23,7 @@
 	<a href="/icod/about/">About Us</a><br><br>
 
 	<img src="{% static "logo.jpg" %}" alt="Picture of logo"/>
+	{% endblock %}
 </body>
 
 
