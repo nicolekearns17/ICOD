@@ -79,37 +79,34 @@ body{
     <div class="container" style="font-family: Arial;font-size:20px">
       <div class="row">
         <div class="col-sm-3">
-          <div class="well sidebar-nav" style="background-color:#00B2EE; height:100%; color:white;font-family: Arial; font-size:20px; position: fixed; width: 20%">
+          <div class="well sidebar-nav" style="background-color:#00B2EE; height:100%; color:white;font-family: Arial; font-size:20px; width: 40%">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
+              <li class="nav-header">Menu</li>
               <li class="active"><a href="#">Link</a></li>
-              <li><a href="#" >Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li><a href="#" style="color:white">About Us</a></li>
+              <li><a href="#" style="color:white">Meet the Team</a></li>
+              <li><a href="#" style="color:white">Services we Provide</a></li>
+              <li><a href="#" style="color:white">User Involvment</a></li>
+              <li><a href="#" style="color:white">News & Events</a></li>
+              <li><a href="#" style="color:white">Link</a></li>
+              <li><a href="#" style="color:white">Link</a></li>
+              <li><a href="#" style="color:white">Link</a></li>
+              <li><a href="#" style="color:white">Contact Us</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
 	{% endblock %}
 
 	<div class="col-sm-9">
-          <div class="jumbotron">
         {% block content %}
 
 	{% endblock %}
 	</div>
-	</div>
       <hr>
 
-      <footer>
-        <p>&copy; Company 2013</p>
-      </footer>
+      <center><footer>
+        <p>&copy; Inverclude Council on Disability</p>
+      </footer></center>
 
     </div><!--/.fluid-container-->
 

@@ -11,7 +11,9 @@ def index(request):
 
 def about(request):
 	context = RequestContext(request)
-	return render_to_response('icod/about.html')
+	intro_list = Home.objects.all()
+	context_dict = {'intros' : intro_list}
+	return render_to_response('icod/about.html', context_dict, context)
 
 def services(request):
 	return HttpResponse("The services we provide!")

@@ -1,10 +1,27 @@
 <!DOCTYPE html>
+
 {% extends 'icod/base.html' %}
+{% load static %}
+
+<html>
 
 <body>
-{% block content %}
-Hello, this is a test.
-{% endblock %}
+	{% block content %}
+	<h1>Welcome to Inverclyde Council on Disability</h1><br><br>
+
+	<img src="{% static "shop.jpg" %}" alt="Picture of office"/><br>
+
+	{% if intros %}
+		{% for intro in intros %}
+			{{intro.intro}}
+		{% endfor %}
+	{% else %} 
+		<strong> No intro available! </strong>
+	{% endif %}
+	<br><br>
+
+	{% endblock %}
 </body>
+
 
 </html>
