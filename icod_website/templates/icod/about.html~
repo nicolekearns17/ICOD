@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'icod/base.html' %}
+
+<body>
+{% block content %}
+Hello, this is a test.
+{% endblock %}
+</body>
+
+</html>

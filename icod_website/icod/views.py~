@@ -5,8 +5,8 @@ from icod.models import Home, Category
 
 def index(request):
 	context = RequestContext(request)
-	cat_list = Category.objects.all()
-	context_dict = {'cats' : cat_list}
+	intro_list = Home.objects.all()
+	context_dict = {'intros' : intro_list}
 	return render_to_response('icod/index.html', context_dict, context)
 
 def about(request):

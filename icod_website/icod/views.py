@@ -10,7 +10,8 @@ def index(request):
 	return render_to_response('icod/index.html', context_dict, context)
 
 def about(request):
-	return HttpResponse("About ICOD!")
+	context = RequestContext(request)
+	return render_to_response('icod/about.html')
 
 def services(request):
 	return HttpResponse("The services we provide!")
