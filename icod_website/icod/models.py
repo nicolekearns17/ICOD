@@ -4,6 +4,7 @@ from django.db import models
 class TeamMember(models.Model):
 	name = models.CharField(max_length=128)
 	picture = models.ImageField(upload_to='teamPhotos', blank=True)
+	jobTitle = models.CharField(max_length=128)
 	about = models.TextField(max_length=1000)
 
 	def __unicode__(self):
