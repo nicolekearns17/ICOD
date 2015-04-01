@@ -13,24 +13,49 @@
 
 {% block content %}
 
-<h1><center> Meet our Team </center><h1>
+<h1><center> News & Events</center></h1>
 <br><br>
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-       <img src="{% static "teamPhotos/carol.jpg" %}" width="70" height="70" >
-      <div class="caption">
-	<h3>Carol Kearns</h3>
-        <p style="font-size:18px">Job Title:<br> Project Manager</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
-      </div>
+<div class="row" id="newsTable" >                  
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a id="home" href="#">All News</a></li>
+        <li><a href="#" id="html">Financial News</a></li>
+        <li><a href="#" id="css">Recognition</a></li>
+        <li><a href="#" id="about">Policy Changes</a></li>
+	<li><a href="#" id="about">Social News</a></li>       
+      </ul>
+	<br>
+	<table class="table" style="width:auto">
+	{% if news %}
+	    <thead>
+	      <tr>
+		<th>Date</th>
+		<th>Title</th>
+		<th>Information</th>
+	      </tr>
+	    </thead>
+		{% for item in news %}
+	    <tbody>
+	      <tr>
+		<td width="50">{{item.date}}</td>
+		<td width="75">{{item.title}}</td>
+		<td width="150">{{item.news}}</td>
+	      </tr>
+	    </tbody>
+		{% endfor %}
+	  </table>
+	{% else %}
+		<strong> No news & events at this time. </strong>
+	{% endif %}
     </div>
-  </div>
-</div>
 
 
 {% endblock %}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+
+</script>
 
 </body>
 

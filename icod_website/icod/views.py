@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response
-from icod.models import Home, Category, TeamMember
+from icod.models import Home, Category, TeamMember, NewsItem
 from django.http import HttpResponseRedirect
 
 def index(request):
@@ -33,7 +33,9 @@ def test(request):
 
 def news(request):
 	context = RequestContext(request)
-	return render_to_response('icod/news.html', context)
+	news_list = NewsItem.objects.all().order_by('date')
+	context_dict = {'news' : news_list}
+	return render_to_response('icod/news.html', context_dict, context)
 
 def category(request):
 	return HttpResponse("The News Categories")
