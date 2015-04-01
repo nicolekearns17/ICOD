@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django.template import RequestContext
+from django.template import RequestContext, loader
 from django.shortcuts import render_to_response
 from icod.models import Home, Category, TeamMember
+from django.http import HttpResponseRedirect
 
 def index(request):
 	context = RequestContext(request)
@@ -30,21 +31,16 @@ def test(request):
 	context_dict = {'intros' : intro_list}
 	return render_to_response('icod/test.html', context_dict, context)
 
+def news(request):
+	context = RequestContext(request)
+	return render_to_response('icod/news.html', context)
+
 def category(request):
 	return HttpResponse("The News Categories")
 
-#def user_profiles(request, name):
-#		currentUser=request.user.username
-#		cat_list = Category.objects.all()
-#		posts_list=Post.objects.all().order_by('-id')
-#		comments_list=postComment.objects.all().order_by('-id')
-#		links=Link.objects.all()
-#		if not request.user.is_authenticated():
-#			HttpResponseRedirect('/login/')
-#		userSearched=User.objects.get(username=name)
-#		followingList =Followers.objects.filter(fuser=request.user).values_list('follows', flat=True)
-#		p=UserProfile.objects.get(user=userSearched)
-#		picture=p.picture
-#		posts=Post.objects.filter(userProfile=p)
-#		context = RequestContext(request,{'followingList':followingList, 'currentUser':currentUser, 'picture':picture, 'user1': userSearched, 'cat_list': cat_list, 'posts_list':posts,'comments_list':comments_list,'links':links})
-#		return render_to_response('shareit/profile.html', {}, context )
+def member_info(request, member_name):
+	template = loader.get_template('icod/member_info.html')
+	person = TeamMember.objects.get(name__contains=member_name)
+	context_dict = {'member' : person}
+	context = RequestContext(request,context_dict)
+	return HttpResponse(template.render(context))

@@ -7,7 +7,9 @@ urlpatterns = patterns('',
 	url(r'^services', views.services, name='services'),
 	url(r'^team', views.teamMembers, name='team'),
 	url(r'^category', views.category, name='category'),
-	#url(r'^teamMembers/(?P<name>\w+)', views.user_profiles, name='profile'),
-	url(r'^test', views.test, name='test')
+	#url(r'^member_info', views.member_info, name='member_info'),
+	url(r'^member_info/(?P<member_name>\w+)', views.member_info, name='member_info'),
+	url(r'^test', views.test, name='test'),
+	url(r'^news', views.news, name='news')
 
 )

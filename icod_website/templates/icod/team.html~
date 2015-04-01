@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-{% extends 'icod/base1.html' %}
+{% extends 'icod/base.html' %}
 {% load static %}
 
 <html>
@@ -11,6 +11,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   </head>
 
+<style>
+
+</style>
+
 <body>
 
 	{% block content %}
@@ -18,64 +22,32 @@
 
 	<br><br>
 
-	<div class="row" >
-	{% if teamMembers %}
-		{% for member in teamMembers %}
-			<!-- <div class="row"> -->
-			  <div id="info" class="col-sm-4"> 
-			    <div class="thumbnail">
-			      <img src="{{STATIC_URL}}{{member.picture}}" width="50" height="70" >
-			      <div class="memberInfo">
-				<h3>{{member.name}}</h3>
-				Role: {{member.jobTitle}}
-				<!-- <p class="minimize">{{member.about}}</p>
-				<p><a href="#" id="more" class="btn btn-primary" role="button">Read More</a>  -->
-			      </div>
-			    </div>
-			</div>
-		{% endfor %}
-	{% else %} 
-		<strong> No information available!</strong>
-	{% endif %}
-	</div>
-	<br><br>
+	<div class="row">
+{% if teamMembers %}
+{% for member in teamMembers %}
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+       <img src="{% static "teamPhotos/carol.jpg" %}" width="70" height="70" >
+      <div class="caption">
+	<p style="font-size:24px">{{member.name}}</p>
+        <p style="font-size:18px">Job Title:<br> {{member.jobTitle}}</p>
+        <p><a href="/icod/member_info/{{member.name}}" class="btn btn-default" style="background-color:#FF34B3" role="button">Read More</a></p>
+      </div>
+    </div>
+ </div>
+{% endfor %}
+{% else %}
+	<strong> No information available!</strong>
+{% endif %}
+</div>
 
-<!--
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
-$(function(){
-
-jQuery(function(){
-
-    var minimized_elements = $('p.minimize');
-    
-    minimized_elements.each(function(){    
-        var t = $(this).text();        
-        if(t.length < 100) return;
-        
-        $(this).html(
-            t.slice(0,100)+'<span>... </span><a href="#" class="more">More</a>'+
-            '<span style="display:none;">'+ t.slice(100,t.length)+' <a href="#" class="less">Less</a></span>'
-        );
-        
-    }); 
-    
-    $('a.more', minimized_elements).click(function(event){
-        event.preventDefault();
-        $(this).hide().prev().hide();
-        $(this).next().show();        
-    });
-    
-    $('a.less', minimized_elements).click(function(event){
-        event.preventDefault();
-        $(this).parent().hide().prev().show().prev().show();    
-    });
-
-});
-
-});
-
-</script> -->
+function readMore() {
+    document.getElementById("{{member.id}}readMore").innerHTML = "Hello World";
+}
+</script>
 
 	{% endblock %}
 </body>
