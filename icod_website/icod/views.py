@@ -24,6 +24,12 @@ def teamMembers(request):
 	context_dict = {'teamMembers' : team_info}
 	return render_to_response('icod/team.html', context_dict, context)
 
+def test(request):
+	context = RequestContext(request)
+	intro_list = Home.objects.all()
+	context_dict = {'intros' : intro_list}
+	return render_to_response('icod/test.html', context_dict, context)
+
 def category(request):
 	return HttpResponse("The News Categories")
 

@@ -6,6 +6,7 @@ urlpatterns = patterns('',
 	url(r'^about', views.about, name='about'),
 	url(r'^services', views.services, name='services'),
 	url(r'^team', views.teamMembers, name='team'),
-	url(r'^category', views.category, name='category')
+	url(r'^category', views.category, name='category'),
+	#url(r'^teamMembers/(?P<name>\w+)', views.user_profiles, name='profile'),
 
 )

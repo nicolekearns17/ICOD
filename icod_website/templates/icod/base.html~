@@ -1,127 +1,156 @@
-
-<!DOCTYPE html>
+<!doctype html>
 
 {% load static %}
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>ICOD</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
-    <link href="{{STATIC_URL}}bootstrap/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-
-      @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
-        .navbar-text.pull-right {
-          float: none;
-          padding-left: 5px;
-          padding-right: 5px;
-        }
-      }
-    </style>
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
-
- <link href="{{STATIC_URL}}/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="jumbotron.css" rel="stylesheet">
-  </head>
+<html>
+<head>
+	<title>ICOD</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="style.css" type="text/css" rel="stylesheet" />
+	<link href="{{STATIC_URL}}bootstrap/css/bootstrap.css" rel="stylesheet">
+</head>
 
 <style>
-body{
-	background-color:#FFFFFF;
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family: Arial;
+	font-size: 20px;
+}
+
+.content {
+	min-height: 100%;
+	position: relative;
+	overflow: auto;
+	z-index: 0; 
+}
+
+.background {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.top_block {
+	width: 100%;
+	display: block; 
+}
+
+.bottom_block {
+	position: absolute;
+	width: 100%;
+	display: block;
+	bottom: 0; 
+}
+
+.left_block {
+	display: block;
+	float: left; 
+}
+
+.right_block {
+	display: block;
+	float: right; 
+	width: 70%;
+	padding-right: 10%;
+}
+
+.center_block {
+	display: block;
+	width: auto; 
+}
+
+.topBar {
+	width: 100%;
+	height: 70px;
+	background-color: #00B2EE;
+	color: white;
+}
+
+.background.sidebar {
+	height: 100% !important;
+	padding-bottom: 0;
+	left: 0;
+	width: 238px;
+	background-color: #00B2EE;
+	margin-top: 70px; 
+}
+
+.sidebar {
+	height: 100%;
+	width: 238px;
+	padding-bottom: 0px;
+	color:white;
+}
+.nav-list > li > a:hover {
+    background-color: #FF34B3;
+}
+.navbar-right > li > a:hover{
+	height: 70px;
+	background-color: #FF34B3;
 }
 </style>
 
-  <body>
+<body>
+	<div class="content">
+		<div class="top_block topBar">
+			<div class="content">
+				<a class="brand" href="/icod/"><img src="{% static "logo.jpg" %}" width="150" height="70""></a>
+				<ul class="nav navbar-nav navbar-right">
+				    <li><a href="#" style="color:white">Dashboard</a></li>
+				    <li><a href="#" style="color:white">Settings</a></li>
+				    <li><a href="#" style="color:white">Profile</a></li>
+				    <li><a href="#" style="color:white">Help</a></li>
+				  </ul>
+				  <!-- search bar
+				  <form class="navbar-form navbar-right">
+				    <input type="text" class="form-control" placeholder="Search...">
+				  </form> -->
+			</div>
+		</div>
+		{% block sidebar %}
+		<div class="background sidebar">
+			<ul class="nav nav-list">
+				<br>
+			      <li class="nav-header">Menu</li>
+			      <li><a href="/icod/" style="color:white">Home</a></li>
+			      <li><a href="/icod/about/" style="color:white">About Us</a></li>
+			      <li><a href="/icod/team/" style="color:white">Meet the Team</a></li>
+			      <li><a href="#" style="color:white">Services we Provide</a></li>
+			      <li><a href="#" style="color:white">User Involvment</a></li>
+			      <li><a href="#" style="color:white">News & Events</a></li>
+			      <li><a href="#" style="color:white">Link</a></li>
+			      <li><a href="#" style="color:white">Link</a></li>
+			      <li><a href="#" style="color:white">Link</a></li>
+			      <li><a href="#" style="color:white">Contact Us</a></li>
+            		</ul>
+		</div>
+		{% endblock %}
+		<div class="left_block sidebar">
+			<div class="content">
+			</div>
+		</div>
+		<div class="right_block body">
+		{% block content %}
 
-   <div class="navbar navbar-fixed-top" style="background-color:#FF34B3">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-	 <a class="brand" href="/icod/"><img src="{% static "logo.jpg" %}" width="150" height="70""></a>
-            <p class="navbar-text pull-right" style="font-family: Arial;font-size:20px">
-              <a href="#about">About</a>
-              <a href="#contact">Contact</a>
-            </p>
-        </div>
-      </div>
-    </div> 
-    <br>
-
-    {% block sidebar %}
-    <div class="container" style="font-family: Arial;font-size:20px">
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well sidebar-nav" style="background-color:#00B2EE; height:100%; color:white;font-family: Arial; font-size:20px">
-            <ul class="nav nav-list">
-              <li class="nav-header">Menu</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="about/" style="color:white">About Us</a></li>
-              <li><a href="#" style="color:white">Meet the Team</a></li>
-              <li><a href="#" style="color:white">Services we Provide</a></li>
-              <li><a href="#" style="color:white">User Involvment</a></li>
-              <li><a href="#" style="color:white">News & Events</a></li>
-              <li><a href="#" style="color:white">Link</a></li>
-              <li><a href="#" style="color:white">Link</a></li>
-              <li><a href="#" style="color:white">Link</a></li>
-              <li><a href="#" style="color:white">Contact Us</a></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-	{% endblock %}
-
-	<div class="col-sm-9">
-        {% block content %}
-
-	{% endblock %}
+		{% endblock %}
+		</div>
 	</div>
-      <hr>
-
-   <!--   <center><footer>
-        <p>&copy; Inverclude Council on Disability</p>
-      </footer></center> -->
-
-    </div><!--/.fluid-container-->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
- <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 
 
-  </body>
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
 
 <center><footer>
 	<img src="{% static "logostrip.jpg" %}" width="520" height="70"> <br><br>
-        <p>&copy; Inverclude Council on Disability</p>
+        <p>&copy; Inverclyde Council on Disability</p>
       </footer></center>
 </html>
 

@@ -69,11 +69,10 @@ html, body {
 	width: 100%;
 	height: 70px;
 	background-color: #00B2EE;
-	color: white;
 }
 
 .background.sidebar {
-	height: 100% !important;
+	height: auto !important;
 	padding-bottom: 0;
 	left: 0;
 	width: 238px;
@@ -82,17 +81,13 @@ html, body {
 }
 
 .sidebar {
-	height: 100%;
+	height: auto;
 	width: 238px;
 	padding-bottom: 0px;
 	color:white;
 }
 .nav-list > li > a:hover {
     background-color: #FF34B3;
-}
-.navbar-right > li > a:hover{
-	height: 70px;
-	background-color: #FF34B3;
 }
 </style>
 
@@ -101,16 +96,6 @@ html, body {
 		<div class="top_block topBar">
 			<div class="content">
 				<a class="brand" href="/icod/"><img src="{% static "logo.jpg" %}" width="150" height="70""></a>
-				<ul class="nav navbar-nav navbar-right">
-				    <li><a href="#" style="color:white">Dashboard</a></li>
-				    <li><a href="#" style="color:white">Settings</a></li>
-				    <li><a href="#" style="color:white">Profile</a></li>
-				    <li><a href="#" style="color:white">Help</a></li>
-				  </ul>
-				  <!-- search bar
-				  <form class="navbar-form navbar-right">
-				    <input type="text" class="form-control" placeholder="Search...">
-				  </form> -->
 			</div>
 		</div>
 		{% block sidebar %}
@@ -118,9 +103,9 @@ html, body {
 			<ul class="nav nav-list">
 				<br>
 			      <li class="nav-header">Menu</li>
-			      <li><a href="/icod/" style="color:white">Home</a></li>
-			      <li><a href="/icod/about/" style="color:white">About Us</a></li>
-			      <li><a href="/icod/team/" style="color:white">Meet the Team</a></li>
+			      <li class="active"><a href="#">Link</a></li>
+			      <li><a href="about/" style="color:white">About Us</a></li>
+			      <li><a href="#" style="color:white">Meet the Team</a></li>
 			      <li><a href="#" style="color:white">Services we Provide</a></li>
 			      <li><a href="#" style="color:white">User Involvment</a></li>
 			      <li><a href="#" style="color:white">News & Events</a></li>
@@ -135,7 +120,7 @@ html, body {
 			<div class="content">
 			</div>
 		</div>
-		<div class="right_block body">
+		<div class="right_block content">
 		{% block content %}
 
 		{% endblock %}

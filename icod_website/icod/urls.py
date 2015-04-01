@@ -8,5 +8,6 @@ urlpatterns = patterns('',
 	url(r'^team', views.teamMembers, name='team'),
 	url(r'^category', views.category, name='category'),
 	#url(r'^teamMembers/(?P<name>\w+)', views.user_profiles, name='profile'),
+	url(r'^test', views.test, name='test')
 
 )

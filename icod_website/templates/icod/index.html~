@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-{% extends 'icod/base.html' %}
+{% extends 'icod/test.html' %}
 {% load static %}
 
 <html>
