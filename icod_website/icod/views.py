@@ -34,7 +34,11 @@ def test(request):
 def news(request):
 	context = RequestContext(request)
 	news_list = NewsItem.objects.all().order_by('date')
-	context_dict = {'news' : news_list}
+	fin_list = NewsItem.objects.filter(category__name='Financial').order_by('date')
+	recog_list = NewsItem.objects.filter(category__name='Recognition').order_by('date')
+	pol_list = NewsItem.objects.filter(category__name='Policy Changes').order_by('date')
+	soc_list = NewsItem.objects.filter(category__name='Social News').order_by('date')
+	context_dict = {'news' : news_list, 'fin' : fin_list, 'recog': recog_list, 'pols' : pol_list, 'socs' : soc_list}
 	return render_to_response('icod/news.html', context_dict, context)
 
 def category(request):

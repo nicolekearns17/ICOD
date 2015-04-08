@@ -4,9 +4,10 @@
 {% load static %}
 
 <head>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.1.1.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+
 </head>
 
 <style>
@@ -25,10 +26,10 @@ div{
 <div class="row" id="newsTable" >                  
       <ul class="nav nav-tabs" role="tablist">
         <li class="active"><a id="home" href="#">All News</a></li>
-        <li><a href="#" id="html">Financial News</a></li>
-        <li><a href="#" id="css">Recognition</a></li>
-        <li><a href="#" id="about">Policy Changes</a></li>
-	<li><a href="#" id="about">Social News</a></li>       
+        <li><a href="" id="finTab" onclick='return activate()'>Financial News</a></li>
+        <li><a href="" id="recogTab" onclick='return activate()'>Recognition</a></li>
+        <li><a href="" id="polTab">Policy Changes</a></li>
+	<li><a href="" id="socTab">Social News</a></li>       
       </ul>
 	<br>
 	<table class="table" id="tab1">
@@ -42,7 +43,7 @@ div{
 		{% for item in news %}
 	    <tbody>
 	      <tr>
-		<td width="30%">{{item.date}}</td>
+		<td width="25%">{{item.date}}</td>
 		<td><strong>Title: {{item.title}}</strong><br><br>{{item.news|linebreaks}}</td>
 	      </tr>
 	    </tbody>
@@ -53,13 +54,57 @@ div{
 	{% endif %}
     </div>
 
+{% if recog %}
+	{% for rItem in recog %}
+		YES!<br>
+	{% endfor %}
+{% else %}
+	no recog news<br> 
+{% endif %}
+
+{% if fin %}
+	{% for fItem in fin %}
+		YES!<br>
+	{% endfor %}
+{% else %}
+	no financial news<br> 
+{% endif %}
+
+{% if pols %}
+	{% for pItem in pols %}
+		YES!<br>
+	{% endfor %}
+{% else %}
+	no policy news<br>
+{% endif %}
+
+{% if socs %}
+	{% for sItem in socs %}
+		YES!<br>
+	{% endfor %}
+{% else %}
+	no social news <br>
+{% endif %}
+
+<ul class="nav nav-tabs">
+ <li><a href="#a" data-toggle="tab">a</a></li>
+ <li><a href="#b" data-toggle="tab">b</a></li>
+ <li><a href="#c" data-toggle="tab">c</a></li>
+ <li><a href="#d" data-toggle="tab">d</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+<div class="tab-pane active" id="a">...</div>
+<div class="tab-pane" id="b">.bfjbf</div>
+<div class="tab-pane" id="c">.fnnsakl..</div>
+<div class="tab-pane" id="d">...ninvkaslm</div>
+</div>
 
 {% endblock %}
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
-$("#tab1").width($(window).width());
-</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 </body>
 
