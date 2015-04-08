@@ -19,14 +19,13 @@ html, body {
 	font-family: Arial;
 	font-size: 20px;
 }
-
 .content {
 	min-height: 100%;
 	position: relative;
 	overflow: auto;
 	z-index: 0; 
+	font-size: 20px;
 }
-
 .background {
 	position: absolute;
 	z-index: -1;
@@ -35,24 +34,20 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
-
 .top_block {
 	width: 100%;
 	display: block; 
 }
-
 .bottom_block {
 	position: absolute;
 	width: 100%;
 	display: block;
 	bottom: 0; 
 }
-
 .left_block {
 	display: block;
 	float: left; 
 }
-
 .right_block {
 	display: block;
 	float: right; 
@@ -60,19 +55,16 @@ html, body {
 	padding-right: 10%;
 	padding-left: 10%;
 }
-
 .center_block {
 	display: block;
 	width: auto; 
 }
-
 .topBar {
 	width: 100%;
 	height: 70px;
 	background-color: #00B2EE;
 	color: white;
 }
-
 .background.sidebar {
 	height: 100% !important;
 	padding-bottom: 0;
@@ -81,7 +73,6 @@ html, body {
 	background-color: #00B2EE;
 	margin-top: 70px; 
 }
-
 .sidebar {
 	height: 100%;
 	width: 238px;
@@ -91,22 +82,22 @@ html, body {
 .nav-list > li > a:hover {
     background-color: #FF34B3;
 }
-.navbar-right > li > a:hover{
+.navbar-right > a:hover{
 	height: 70px;
 	background-color: #FF34B3;
 }
 </style>
 
 <body>
-	<div class="content">
+	<div class="content" id="content">
 		<div class="top_block topBar">
 			<div class="content">
 				<a class="brand" href="/icod/"><img src="{% static "logo.jpg" %}" width="150" height="70""></a>
 				<ul class="nav navbar-nav navbar-right">
-				    <li><a href="#" style="color:white">Dashboard</a></li>
-				    <li><a href="#" style="color:white">Settings</a></li>
-				    <li><a href="#" style="color:white">Profile</a></li>
-				    <li><a href="#" style="color:white">Help</a></li>
+					<button class="btn btn-default" style="color:white;background-color:#FF34B3;width:100%" id="incfont"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Increase Font</button><br>
+					<button class="btn btn-default" style="color:white;background-color:#FF34B3"" id="decfont"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Decrease Font</button>
+<button class="btn btn-default" style="color:white;background-color:#FF34B3"" id="decfont"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Reset</button>
+				    <!--<li><a href="/admin/" style="color:white">Admin</a></li>-->
 				  </ul>
 				  <!-- search bar
 				  <form class="navbar-form navbar-right">
@@ -138,20 +129,31 @@ html, body {
 		</div>
 		<div class="right_block body">
 		{% block content %}
-
 		{% endblock %}
 		</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('#incfont').click(function(){   
+        curSize= parseInt($('#content').css('font-size')) + 2;
+  if(curSize<=50)
+        $('#content').css('font-size', curSize);
+        }); 
+  $('#decfont').click(function(){   
+        curSize= parseInt($('#content').css('font-size')) - 2;
+  if(curSize>=12)
+        $('#content').css('font-size', curSize);
+        });
+ });
+</script>
+
 	</div>
-
-
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-
 </body>
-
 <center><footer>
 	<img src="{% static "logostrip.jpg" %}" width="520" height="70"> <br><br>
         <p>&copy; Inverclyde Council on Disability</p>
       </footer></center>
 </html>
-
