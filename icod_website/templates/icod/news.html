@@ -9,6 +9,12 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 
+<style>
+div{
+	overflow-x: hidden;
+}
+</style>
+
 <body>
 
 {% block content %}
@@ -25,21 +31,19 @@
 	<li><a href="#" id="about">Social News</a></li>       
       </ul>
 	<br>
-	<table class="table" style="width:auto">
+	<table class="table" id="tab1">
 	{% if news %}
 	    <thead>
 	      <tr>
 		<th>Date</th>
-		<th>Title</th>
 		<th>Information</th>
 	      </tr>
 	    </thead>
 		{% for item in news %}
 	    <tbody>
 	      <tr>
-		<td width="50">{{item.date}}</td>
-		<td width="75">{{item.title}}</td>
-		<td width="150">{{item.news}}</td>
+		<td width="25%">{{item.date}}</td>
+		<td><strong>Title: {{item.title}}</strong><br><br>{{item.news|linebreaks}}</td>
 	      </tr>
 	    </tbody>
 		{% endfor %}
@@ -54,7 +58,7 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
-
+$("#tab1").width($(window).width());
 </script>
 
 </body>

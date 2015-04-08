@@ -13,10 +13,10 @@
 
 {% block content %}
 <br><br>
-<a href="/icod/team/"  class="btn btn-info btn-large"><i class="icon-white icon-chevron-left"></i> Back to the Team</a>
+<a href="/icod/team/"  class="btn btn-info btn-large"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to the Team</a>
 <center>
 <h1>{{member.name}}</h1><br>
-<img src="{{STATIC_URL}}{{member.picture}}" width="170" height="200"><br><br>
+<img src="{{STATIC_URL}}{{member.picture}}" width="170" height="250"><br><br>
 <p>Job Title: {{member.jobTitle}}</p><br><br>
 <p>{{member.about}}</p>
 </center>

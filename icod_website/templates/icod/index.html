@@ -16,7 +16,7 @@
 	<br><br>
 	{% if intros %}
 		{% for intro in intros %}
-			{{intro.intro}}
+			{{intro.intro|linebreaks}}
 		{% endfor %}
 	{% else %} 
 		<strong> No intro available! </strong>

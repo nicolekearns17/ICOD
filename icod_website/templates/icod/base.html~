@@ -17,14 +17,14 @@ html, body {
 	width: 100%;
 	height: 100%;
 	font-family: Arial;
-	font-size: 20px;
+	font-size: 18px;
 }
 .content {
 	min-height: 100%;
 	position: relative;
 	overflow: auto;
 	z-index: 0; 
-	font-size: 20px;
+	font-size: 18px;
 }
 .background {
 	position: absolute;
@@ -96,7 +96,6 @@ html, body {
 				<ul class="nav navbar-nav navbar-right">
 					<button class="btn btn-default" style="color:white;background-color:#FF34B3;width:100%" id="incfont"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Increase Font</button><br>
 					<button class="btn btn-default" style="color:white;background-color:#FF34B3"" id="decfont"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Decrease Font</button>
-<button class="btn btn-default" style="color:white;background-color:#FF34B3"" id="decfont"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Reset</button>
 				    <!--<li><a href="/admin/" style="color:white">Admin</a></li>-->
 				  </ul>
 				  <!-- search bar
