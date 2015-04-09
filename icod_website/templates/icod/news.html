@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
 	{% block content %}
 
 	<h1><center> News & Events</center></h1>
@@ -40,7 +41,7 @@
 				<tbody>
 					<tr>
 					<td width="25%">{{item.date}}</td>
-					<td><strong>Title: {{item.title}}</strong><br><br>{{item.news|linebreaks}}</td>
+					<td><strong>Title: {{item.title}}</strong><br><br><div class="nContents">{{item.news|linebreaks}}<br></div></td>
 					</tr>
 				</tbody>
 				{% endfor %}
@@ -63,7 +64,7 @@
 				<tbody>
 					<tr>
 					<td width="25%">{{fItem.date}}</td>
-					<td><strong>Title: {{fItem.title}}</strong><br><br>{{fItem.news|linebreaks}}</td>
+					<td><strong>Title: {{fItem.title}}</strong><br><br><div class="nContents">{{fItem.news|linebreaks}}</div></td>
 					</tr>
 				</tbody>
 				{% endfor %}
@@ -85,7 +86,7 @@
 				<tbody>
 					<tr>
 					<td width="25%">{{rItem.date}}</td>
-					<td><strong>Title: {{rItem.title}}</strong><br><br>{{rItem.news|linebreaks}}</td>
+					<td><strong>Title: {{rItem.title}}</strong><br><br><div class="nContents">{{rItem.news|linebreaks}}</div></td>
 					</tr>
 				</tbody>
 				{% endfor %}
@@ -107,7 +108,7 @@
 				<tbody>
 					<tr>
 					<td width="25%">{{pItem.date}}</td>
-					<td><strong>Title: {{pItem.title}}</strong><br><br>{{pItem.news|linebreaks}}</td>
+					<td><strong>Title: {{pItem.title}}</strong><br><br><div class="nContents">{{pItem.news|linebreaks}}</div></td>
 					</tr>
 				</tbody>
 				{% endfor %}
@@ -129,7 +130,7 @@
 				<tbody>
 					<tr>
 					<td width="25%">{{sItem.date}}</td>
-					<td><strong>Title: {{sItem.title}}</strong><br><br>{{sItem.news|linebreaks}}</td>
+					<td><strong>Title: {{sItem.title}}</strong><br><br><div class="nContents">{{sItem.news|linebreaks}}</div></td>
 					</tr>
 				</tbody>
 				{% endfor %}
@@ -141,8 +142,30 @@
 		</div><!-- /.tab-content -->
 	</div><!-- /.tabbable -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script>
+			var minimized_elements = $('div.nContents');
+
+			minimized_elements.each(function(){    
+				var t = $(this).text();        
+				if(t.length < 200) return;
+		
+				$(this).html(t.slice(0,200)+'<span>... </span><a class="more">Read More</a>'+ '<span style="display:none;">'+ t.slice(200,t.length)+'<a class="less">Read Less</a></span>'
+				);
+        		});
+	
+			$('a.more', minimized_elements).click(function(event){
+				event.preventDefault();
+				$(this).hide().prev().hide();
+				$(this).next().show();        
+			});
+
+			$('a.less', minimized_elements).click(function(event){
+				event.preventDefault();
+				$(this).parent().hide().prev().show().prev().show();    
+			});
+	</script>
 
 	{% endblock %}
 </body>
