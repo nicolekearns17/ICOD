@@ -148,10 +148,11 @@
 			var minimized_elements = $('div.nContents');
 
 			minimized_elements.each(function(){    
-				var t = $(this).text();        
+				var t = $(this).text(); 
+				t = t.replace(/\r?\n/g, '<br />');      
 				if(t.length < 200) return;
 		
-				$(this).html(t.slice(0,200)+'<span>... </span><a class="more">Read More</a>'+ '<span style="display:none;">'+ t.slice(200,t.length)+'<a class="less">Read Less</a></span>'
+				$(this).html(t.slice(0,200)+'<span>... </span><a class="more">Read More</a>'+ '<span style="display:none;">'+ t.slice(200,t.length)+' <a class="less">Read Less</a></span>'
 				);
         		});
 	
