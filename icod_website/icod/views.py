@@ -50,3 +50,7 @@ def member_info(request, member_name):
 	context_dict = {'member' : person}
 	context = RequestContext(request,context_dict)
 	return HttpResponse(template.render(context))
+
+def contact(request):
+	context = RequestContext(request)
+	return render_to_response('icod/contact.html',context)

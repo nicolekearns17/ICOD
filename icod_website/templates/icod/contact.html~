@@ -13,18 +13,18 @@
 
 <body>
 	{% block content %}
-	<h1>Welcome to Inverclyde Council on Disability</h1><br><br>
 
-	<img src="{% static "shop.jpg" %}" alt="Picture of office"/><br>
+<center><h1>Contact Us</h1><br><br>
 
-	{% if intros %}
-		{% for intro in intros %}
-			{{intro.intro}}
-		{% endfor %}
-	{% else %} 
-		<strong> No intro available! </strong>
-	{% endif %}
-	<br><br>
+<p>We would like to hear from you if you have any comments or suggestions that would help us to improve the service that we offer.<br><br>
+
+You can contact us:<br><br></center>
+
+<b>Telephone:</b> 01475 732700<br><br>
+
+<b>Fax:</b> 01475 730210<br><br>
+
+<b>Email:</b><a href="mailto:enquiries@icod.org.uk" target="_top">enquiries@icod.org.uk</a><br><br></p>
 
 <script
 src="http://maps.googleapis.com/maps/api/js">
@@ -52,10 +52,8 @@ marker.setMap(map);
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-</head>
 
-<body>
-<div id="googleMap" style="width:500px;height:380px;"></div>
+<div id="googleMap" style="width:500px;height:380px;align:center" ></div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
